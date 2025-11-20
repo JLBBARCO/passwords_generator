@@ -1,13 +1,13 @@
-from random import randint
+from random import choice
 import lib.TypeWindow as TypeWindow
 
-class GenerateComplexPassword(TypeWindow.TypeWindow('Type of Number of Characters', Characters=True)):
+class GenerateComplexPassword(TypeWindow.TypeWindow):
     def __init__(self):
-        super().__init__(Address=False, User=False, Password=True, TitleWindow='Generate Complex Password')
-        self.mainloop()
+        super().__init__(Address=False, User=False, Password=False, TitleWindow='Generate Complex Password', Characters=True)
+        self.password = None
 
     def submit(self):
-        length = self.passwordEntry.get()
+        length = self.charactersEntry.get()
         try:
             length = int(length)
             if length <= 0:
@@ -21,8 +21,7 @@ class GenerateComplexPassword(TypeWindow.TypeWindow('Type of Number of Character
                 '?', '!', '@', '#', '$', '%', '/', '+', '-', '_', '=', '*', '&', '<',
                 '>', '(', ')', '[', ']', '{', '}', 'Ç', 'ç'
             )
-            password = ''.join(caracteres[randint(0, len(caracteres) - 1)] for _ in range(length))
-            self.password = password
+            self.password = ''.join(choice(caracteres) for _ in range(length))
         except ValueError:
             self.password = 'Invalid length'
         self.destroy()

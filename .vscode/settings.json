@@ -6,6 +6,7 @@
     "columnspan",
     "customtkinter",
     "padx",
-    "pady"
+    "pady",
+    "rowspan"
   ]
 }
