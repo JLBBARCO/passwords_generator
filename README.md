@@ -1,9 +1,15 @@
-# Passwords Generator
+# Passwords Manager
 
-This program generate a alphanumerics passwords and alphanumerics with special caracteres.
+This program manager a passwords saved in a `passwords.csv` file.
 
-The UI is developed in Brazilian Portuguese
+It's can generate a simple and complex passwords, and save in the `password.csv`, as well as add or remove external passwords.
 
-[Repository](https://github.com/JLBBARCO/passwords_generator)
+## Structure of `passwords.csv`
 
-[Program .exe](https://github.com/JLBBARCO/passwords_generator/blob/main/dist/program.exe)
+- The lines is separated with enters;
+- The columns is separated with `;`;
+- The first line contains the column names, which are:
+
+  1. Address
+  2. User
+  3. Password
