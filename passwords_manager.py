@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from lib import ReadPasswordsFile, TypeWindow
+from lib import ReadPasswordsFile
 
 padMain = 25
 class App(ctk.CTk):
@@ -13,6 +13,12 @@ class App(ctk.CTk):
         self.textTitle = ctk.CTkLabel(self.main_frame, text='Passwords Manager')
         self.textTitle.grid(row=0, column=0, columnspan=3, padx=padMain, pady=padMain)
 
+        self.SearchBar = ctk.CTkEntry(self.main_frame, placeholder_text='Search')
+        self.SearchBar.grid(row=1, column=0, columnspan=2, pady=padMain)
+
+        self.SearchButton = ctk.CTkButton(self.main_frame, text='🔍', command=self.search)
+        self.SearchButton.grid(row=1, column=2, pady=padMain)
+
         self.showTable = ctk.CTkScrollableFrame(self.main_frame, width=500, height=100)
         self.showTable.grid(row=2, column=0, columnspan=3, padx=padMain, pady=padMain)
 
@@ -23,21 +29,25 @@ class App(ctk.CTk):
         self.showTableTitlePassword = ctk.CTkLabel(self.showTable, text='Password')
         self.showTableTitlePassword.grid(row=0, column=2, padx=padMain, pady=padMain)
 
-        self.counter = 0
-        for item in ReadPasswordsFile.ReadPasswordsFile().address:
-            self.counter += 1
-            self.showInfoAddress = ctk.CTkLabel(self.showTable, text=item)
-            self.showInfoAddress.grid(row=self.counter, column=0, padx=padMain, pady=padMain)
-        self.counter = 0
-        for item in ReadPasswordsFile.ReadPasswordsFile().user:
-            self.counter += 1
-            self.showInfoAddress = ctk.CTkLabel(self.showTable, text=item)
-            self.showInfoAddress.grid(row=self.counter, column=1, padx=padMain, pady=padMain)
-        self.counter = 0
-        for item in ReadPasswordsFile.ReadPasswordsFile().password:
-            self.counter += 1
-            self.showInfoAddress = ctk.CTkLabel(self.showTable, text=item)
-            self.showInfoAddress.grid(row=self.counter, column=2, padx=padMain, pady=padMain)
+        try:
+            self.counter = 0
+            for item in ReadPasswordsFile.ReadPasswordsFile().address:
+                self.counter += 1
+                self.showInfoAddress = ctk.CTkLabel(self.showTable, text=item)
+                self.showInfoAddress.grid(row=self.counter, column=0, padx=padMain, pady=padMain)
+            self.counter = 0
+            for item in ReadPasswordsFile.ReadPasswordsFile().user:
+                self.counter += 1
+                self.showInfoAddress = ctk.CTkLabel(self.showTable, text=item)
+                self.showInfoAddress.grid(row=self.counter, column=1, padx=padMain, pady=padMain)
+            self.counter = 0
+            for item in ReadPasswordsFile.ReadPasswordsFile().password:
+                self.counter += 1
+                self.showInfoAddress = ctk.CTkLabel(self.showTable, text=item)
+                self.showInfoAddress.grid(row=self.counter, column=2, padx=padMain, pady=padMain)
+        except:
+            self.ShowError = ctk.CTkLabel(self.showTable, text=ReadPasswordsFile.ReadPasswordsFile.ErrorFileNotFound)
+            self.ShowError.grid(row=1, column=0, columnspan=3, padx=padMain, pady=padMain)
 
         self.buttonRemove = ctk.CTkButton(self.main_frame, text='Remove', command=self.remove)
         self.buttonRemove.grid(row=3, column=0, padx=padMain, pady=padMain)
@@ -53,11 +63,14 @@ class App(ctk.CTk):
         self.buttonGenerateComplexPassword = ctk.CTkButton(self.areaGenerate, text='Generate a Complex Password', command=self.complexPassword)
         self.buttonGenerateComplexPassword.grid(row=0, column=1, padx=padMain, pady=padMain)
 
-    def remove(self):
-        from lib import RemovePassword
+    def search(self):
+        pass
 
     def add(self):
         from lib import AddPassword
+
+    def remove(self):
+        from lib import RemovePassword
 
     def simplePassword(self):
         from lib import GenerateSimplePassword
