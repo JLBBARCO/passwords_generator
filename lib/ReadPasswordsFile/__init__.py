@@ -1,8 +1,8 @@
-import pandas as pd
+﻿import pandas as pd
 
 class ReadPasswordsFile():
     ErrorFileNotFound = 'No Password Saved'
-    
+
     def __init__(self):
         try:
             with open('passwords.csv', 'r') as file:
@@ -19,6 +19,7 @@ class ReadPasswordsFile():
             for item in passwords['Password']:
                 self.password.append(f'{item}\n')
         except FileNotFoundError:
+            return ReadPasswordsFile.ErrorFileNotFound
             self.address = []
             self.user = []
             self.password = []
