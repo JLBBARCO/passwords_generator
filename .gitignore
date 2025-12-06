@@ -1,4 +1,5 @@
 passwords_manager.spec
 build/
 passwords.csv
-dist/passwords.csv
+test_passwords.csv
+__pycache__/
