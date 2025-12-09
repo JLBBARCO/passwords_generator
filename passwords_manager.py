@@ -80,7 +80,7 @@ class App(ctk.CTk):
             self.ShowError.grid(row=1, column=0, columnspan=3, padx=padMain, pady=padMain)
 
     def search(self):
-        from lib.search import Search
+        from lib.Search import Search
         search_obj = Search(self.SearchBar.get())
         for widget in self.showTable.winfo_children()[3:]:
             widget.destroy()
@@ -95,6 +95,7 @@ class App(ctk.CTk):
 
     def add(self):
         add_window = TypeWindow(TitleWindow='Add Password', Address=True, User=True, Password=True)
+        add_window.focus()
         self.wait_window(add_window)
         if add_window.address and add_window.user and add_window.password:
             from lib.add import AddPassword
