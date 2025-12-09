@@ -8,6 +8,8 @@ class TypeWindow(ctk.CTkToplevel):
         self.title(TitleWindow)
         self.resizable(False, False)
         self.geometry('400x350')
+
+        self.grab_set()
         
         # Inicializar variáveis
         self.address = None
@@ -90,6 +92,8 @@ class TypeWindow(ctk.CTkToplevel):
             self.password = self.generated_password
         if hasattr(self, 'charactersEntry'):
             self.characters = self.charactersEntry.get()
+        
+        self.grab_release()
         self.destroy()
 
     def display_generated_section(self, password: str):

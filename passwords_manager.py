@@ -95,6 +95,7 @@ class App(ctk.CTk):
 
     def add(self):
         add_window = TypeWindow(TitleWindow='Add Password', Address=True, User=True, Password=True)
+        add_window.focus()
         self.wait_window(add_window)
         if add_window.address and add_window.user and add_window.password:
             from lib.add import AddPassword

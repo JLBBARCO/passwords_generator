@@ -7,6 +7,8 @@
     "customtkinter",
     "padx",
     "pady",
-    "rowspan"
+    "pycache",
+    "rowspan",
+    "textvariable"
   ]
 }
