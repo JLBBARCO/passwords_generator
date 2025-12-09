@@ -19,9 +19,14 @@ class PasswordLoader:
             if hasattr(self.app, 'update_status'):
                 self.app.after(0, lambda: self.app.update_status(self.status_message))
             time.sleep(1)
-            with open('passwords.csv', 'r', encoding='utf-8', newline='') as f:
-                reader = pd.read_csv(f, sep=';')
-                self.passwords_data = reader.to_dict('records')
+            try:
+                with open('passwords.json', 'r', encoding='utf-8', newline='') as f:
+                    reader = pd.read_json(f)
+                    self.passwords_data = reader.to_dict('records')
+            except:
+                with open('passwords.json', 'r', encoding='utf-8', newline='') as f:
+                    from lib.converter import converterToJSON
+                    converterToJSON(f)
             self.data_loaded = True
             self.status_message = f"{len(self.passwords_data)} passwords changed successfully!"
             time.sleep(1)
