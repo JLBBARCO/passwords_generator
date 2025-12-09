@@ -1,6 +1,6 @@
+passwords.csv
+passwords.json
 __pycache__/
 passwords_manager.spec
 build/
-passwords.json
-passwords.csv
-test_passwords.csv
+passwords_manager.exe

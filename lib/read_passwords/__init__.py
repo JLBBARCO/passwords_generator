@@ -3,6 +3,7 @@ import threading
 import time
 import json
 import os
+from lib import converter
 
 class PasswordLoader:
 
@@ -23,7 +24,9 @@ class PasswordLoader:
             time.sleep(1)
             
             # Verifica se o arquivo existe
-            if not os.path.exists('passwords.json'):
+            if not os.path.exists('passwords.json') and os.path.exists('passwords.csv'):
+                converter.convertToCSV()
+            elif not os.path.exists('passwords.json'):
                 self.status_message = self.ErrorFileNotFound
                 self.data_loaded = True  # Define como True mesmo sem dados
                 if hasattr(self.app, 'after'):

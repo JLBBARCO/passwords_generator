@@ -80,7 +80,7 @@ class App(ctk.CTk):
             self.ShowError.grid(row=1, column=0, columnspan=3, padx=padMain, pady=padMain)
 
     def search(self):
-        from lib.Search import Search
+        from lib.search import Search
         search_obj = Search(self.SearchBar.get())
         for widget in self.showTable.winfo_children()[3:]:
             widget.destroy()
