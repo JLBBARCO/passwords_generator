@@ -29,10 +29,9 @@ If your passwords saved in a `passwords.csv` file, the last version of the syste
 
 ## Download Executable Versions
 
-- [v2.4](dist/Passwords%20Manager%20v2.4.exe)
-- [v2.3](dist/Passwords%20Manager%20v2.3.exe)
-- [v2.2](dist/Passwords%20Manager%20v2.2.exe)
-- [v2.1](dist/Passwords%20Manager%20v2.1.exe)
-- [v2.0](dist/Passwords%20Manager%20v2.0.exe)
-- [v1.1](dist/Passwords%20Manager%20v1.1.exe)
-- [v1.0](dist/Passwords%20Manager%20v1.0.exe)
+- [v2.4](https://github.com/JLBBARCO/passwords-manager/releases/tag/v2.4)
+- [v2.2](https://github.com/JLBBARCO/passwords-manager/releases/tag/v2.2)
+- [v2.1](https://github.com/JLBBARCO/passwords-manager/releases/tag/v2.1)
+- [v2.0](https://github.com/JLBBARCO/passwords-manager/releases/tag/v2.0)
+- [v1.1](https://github.com/JLBBARCO/passwords-manager/releases/tag/v1.1)
+- [v1.0](https://github.com/JLBBARCO/passwords-manager/releases/tag/v1.0)
